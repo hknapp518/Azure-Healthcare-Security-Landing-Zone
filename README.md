@@ -597,8 +597,6 @@ These were documented as **known gaps**, rather than enabling expensive services
 
 # What I Learned
 
-# What I Learned
-
 ### Testing means trying to break things
 
 One of the biggest things I took away from this project is that I would rather find out something breaks in testing than find out after it reaches production.
@@ -625,7 +623,7 @@ The control has to protect the environment **without breaking the workload it is
 
 I also discovered that the tagging policy had been assigned too broadly at the subscription level.
 
-The policy itself wasn't necessarily the problem anymore (where I applied it was).
+At that point, the policy itself wasn't the problem. Where I applied it was.
 
 That reinforced the importance of checking scope, inheritance, and the possible impact on other resources before pushing a control into production.
 
@@ -643,20 +641,13 @@ If I couldn't find the activity when I knew exactly what happened, I wouldn't wa
 
 ### Build it, test it, break it, fix it, then validate it again
 
+```text
+Build → Test → Try to Break It → Investigate → Fix → Test Again
+```
 That became the mindset behind this project.
 
+I'd rather discover a bad assumption, broken dependency, overly broad policy, or missing log during testing than discover it for the first time in production.
 
-Build
-  ↓
-Test
-  ↓
-Try to Break It
-  ↓
-Investigate
-  ↓
-Fix
-  ↓
-Test Again
 ---
 
 # Project Result
@@ -714,31 +705,6 @@ Azure-Healthcare-Security-Landing-Zone/
 
 Additional screenshots are retained in the `evidence/` directories so the README can remain focused on the engineering story while still providing supporting implementation evidence.
 
----
-
-# Next Iteration
-
-This project focused on **cloud security architecture and control validation**.
-
-The next iteration of this work will take the same security principles and implement them through:
-
-```text
-Terraform
-   ↓
-GitHub Actions
-   ↓
-Secure CI/CD
-   ↓
-Azure
-   ↓
-Private Workload
-   ↓
-Automated Security Testing
-   ↓
-Cloud Detection & Monitoring
-```
-
-That project will focus on **Infrastructure as Code, DevSecOps, workload identity, automated security scanning, container security, and CI/CD security controls** rather than retroactively adding those technologies to this project.
 
 ---
 
