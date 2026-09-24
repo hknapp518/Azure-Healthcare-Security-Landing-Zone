@@ -1,0 +1,23 @@
+{
+  "mode": "Indexed",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "tags['Environment']",
+          "exists": "false"
+        },
+        {
+          "field": "type",
+          "notIn": [
+            "Microsoft.Network/privateDnsZones",
+            "Microsoft.Network/privateDnsZones/virtualNetworkLinks"
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  }
+}
