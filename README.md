@@ -685,8 +685,7 @@ Azure-Healthcare-Security-Landing-Zone/
 │
 ├── README.md
 │
-├── docs/
-│   ├── architecture/
+├── docs/  
 │   └── SOC2-HIPAA-Security-Readiness-Assessment.pdf
 │
 ├── evidence/
