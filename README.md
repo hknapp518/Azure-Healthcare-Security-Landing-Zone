@@ -14,7 +14,9 @@ I built this landing zone to model that problem and, more importantly, to **test
 ## Architecture
 
 
-<img width="1536" height="1024" alt="AzureHealthCareLandingZoneArchitcture" src="https://github.com/user-attachments/assets/3ca22d8a-f9fb-495d-98f9-ccbad17ea204" />
+<img width="1536" height="1024" alt="AzureHealthCareLandingZoneArchitcture3" src="https://github.com/user-attachments/assets/fa179e15-ed3c-406e-927b-fe1c69a443dc" />
+
+
 
 
 > **Scope note:** The Web/App/Data tiers model the security architecture for a healthcare application. Application compute and real patient data were not deployed.
