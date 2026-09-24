@@ -1,0 +1,24 @@
+// Azure Security Control Change Detection
+// Detects write and delete operations against critical Azure security controls.
+
+AzureActivity
+| where TimeGenerated > ago(24h)
+| where OperationNameValue has_any (
+    "POLICYASSIGNMENTS",
+    "ROLEASSIGNMENTS",
+    "NETWORKSECURITYGROUPS",
+    "VAULTS"
+)
+| where OperationNameValue has_any (
+    "WRITE",
+    "DELETE"
+)
+| project
+    TimeGenerated,
+    OperationNameValue,
+    ActivityStatusValue,
+    Caller,
+    ResourceGroup,
+    ResourceId,
+    CallerIpAddress
+| order by TimeGenerated desc
