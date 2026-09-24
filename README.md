@@ -1,6 +1,6 @@
 # Azure Healthcare Security Landing Zone
 
-### Secure-by-design Azure foundation for a modeled healthcare workload
+### Secure Azure foundation for a modeled healthcare workload
 
 A healthcare organization preparing to host a clinical workload in Azure needs more than deployed resources. Development teams need enough access to work, sensitive services should not be unnecessarily public, governance must be enforced consistently, and security-sensitive changes must be auditable.
 
@@ -13,36 +13,9 @@ I built this landing zone to model that problem and, more importantly, to **test
 
 ## Architecture
 
-```mermaid
-flowchart TD
-    A[Azure Tenant] --> B[Landing-Zones Management Group]
-    B --> C[Development]
-    B --> D[Production]
-    C --> E[Azure Subscription]
 
-    E --> H[Hub VNet]
-    E --> S[Development Spoke]
-    H <--> S
+<img width="1536" height="1024" alt="AzureHealthCareLandingZoneArchitcture" src="https://github.com/user-attachments/assets/3ca22d8a-f9fb-495d-98f9-ccbad17ea204" />
 
-    S --> W[Web Subnet]
-    S --> AP[App Subnet]
-    S --> DT[Data Subnet]
-
-    W -->|HTTPS 443| AP
-    AP -->|SQL 1433| DT
-
-    DT --> PE[Private Endpoints]
-    PE --> KV[Key Vault]
-    PE --> ST[Storage]
-
-    ST --> MI[User-Assigned Managed Identity]
-    MI --> KV
-    KV --> CMK[Customer-Managed Key]
-
-    E --> AL[Azure Activity + Resource Logs]
-    AL --> LA[Log Analytics]
-    LA --> KQL[KQL Security-Control Change Detection]
-```
 
 > **Scope note:** The Web/App/Data tiers model the security architecture for a healthcare application. Application compute and real patient data were not deployed.
 
